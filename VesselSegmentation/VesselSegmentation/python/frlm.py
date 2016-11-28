@@ -47,6 +47,6 @@ def rlm(img, runs):
         frl_mat[img[y, x][run] += 1
     return frl_mat
 def compute_sre(frl_mat):
-    sre_up = sum(sum(col/i**2) for i, col in enumerate(frl_mat.transpose()))
-    sre_down = sum(sum(row) for row in frl_mat)
+    sre_up = np.sum(list(np.sum(col/i**2) for i, col in enumerate(frl_mat.transpose())))
+    sre_down = np.sum(frl_mat)
     return sre_up / sre_down
