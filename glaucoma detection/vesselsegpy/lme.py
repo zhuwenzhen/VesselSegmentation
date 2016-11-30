@@ -1,5 +1,5 @@
 import numpy as np
-import numpy.ndarray
+import numpy
 import scipy.ndimage
 import scipy.signal
 import itertools
@@ -8,7 +8,7 @@ l3 = np.array([[1, 2, 1]])
 E3 = np.array([[-1, 0, 1]])
 S3 = np.array([[-1, 2, -1]])
 
-elementary_masks = [l3 E3 S3]
+elementary_masks = [l3, E3, S3]
 elementary_masks_pair = itertools.permutations(elementary_masks, 2)
 laws_masks = map(lambda k1, k2: scipy.signal.convolve2d(k1, k2), elementary_masks_pair)
 #pillow_kernels = map(lambda mask: PIL.ImageFilter.Kernel((3,3), numpy.ndarray.flatten(mask)), laws_masks)
