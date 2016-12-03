@@ -7,6 +7,8 @@
 #include "SegmentationDoc.h"
 #include <algorithm>
 #include "Morphology.h"
+SegmentationUI  *ui;
+SegmentationDoc *doc;
 
 void convertToFloatImage(CByteImage &byteImage, CFloatImage &floatImage) {
 	CShape sh = byteImage.Shape();
@@ -52,7 +54,6 @@ bool LoadImageFile(const char *filename, CFloatImage &image)
     } else {
 	    CShape sh(fl_image->w(), fl_image->h(), 3);
 	    image = CFloatImage(sh);
-
 	    // Convert the image to the CImage format.
 	    if (!convertImage(fl_image, image)) {
 		    printf("couldn't convert image to RGB format\n");
@@ -68,39 +69,55 @@ int mainErosion(int argc, char **argv) {
 		printf("");
 	}
 
+	// specify a test image
+	char* imageDirectory = "C:/Users/wenzhen/Dropbox/2_Society/WUSTL/cse559a/VesselSegmentation/DRIVE/training/images/21_training.tga";
 	CFloatImage floatQueryImage;
-	bool success = LoadImageFile(argv[2], floatQueryImage);
 
-#if 0
-#else
+	bool success = LoadImageFile(imageDirectory, floatQueryImage);
+	//bool success = LoadImageFile(argv[2], floatQueryImage);
 	if (!success) {
 		printf("couldn't load query image\n");
 		return -1;
 	}
-#endif
+
 	// Perform erosions
-	Erosion()
-
-
-
-
-
-
-
+	CFloatImage result;
+	result = Erosion(floatQueryImage, 2);
+	// convertToByteImage(CFloatImage &floatImage, CByteImage &byteImage)
+	ofstream filestream("filename.txt");
+	CShape sh = result.Shape();
+	int w = sh.width; int h = sh.height;
+	
+	for (int x = 0; x < w; x++) {	
+		for (int y = 0; y < h; y++) {
+			filestream << result.Pixel(x, y, 0) << " ";
+		}
+		filestream << "\n";	
+	}
+	filestream.close();
 }
-
 
 int main(int argc, char **argv) {
 	// This lets us load various image formats.
 	fl_register_images();
+	doc = new SegmentationDoc();
+	ui = new SegmentationUI();
 
-	if (argc > 1) {
+	ui->set_document(doc);
+	doc->set_ui(ui);
+
+	Fl::visual(FL_DOUBLE | FL_INDEX);
+
+	ui->show();
+
+	return Fl::run();
+}
+
+/*if (argc > 1) {
 		if (strcmp(argv[1], "erosion") == 0) {
 			return mainErosion(argc, argv);
 		}
-
-	}
-
+	}*/
 
 	/*if (argc > 1) {
 		if (strcmp(argv[1], "computeFeatures") == 0) {
@@ -161,4 +178,3 @@ int main(int argc, char **argv) {
 
 	//	return Fl::run();
 	//}
-}

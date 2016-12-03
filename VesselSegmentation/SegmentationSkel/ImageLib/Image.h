@@ -28,6 +28,8 @@
 // Copyright © Richard Szeliski, 2001.  See Copyright.h for more details
 //
 ///////////////////////////////////////////////////////////////////////////
+#ifndef IMAGE_H
+#define IMAGE_H
 
 #include "RefCntMem.h"
 #include <stdlib.h>
@@ -175,3 +177,5 @@ struct CError : public exception
 
 
 #include "Image.inl"
+
+#endif

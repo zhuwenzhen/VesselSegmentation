@@ -1,40 +1,16 @@
 #include <assert.h>
 #include <math.h>
 #include <FL/Fl.H>
+#include <FL/fl_types.H>
 #include <FL/Fl_Image.H>
+#include <FL/Fl_Shared_Image.H>
 #include "ImageConvert.h" // not in ImageLib
 #include "ImageLib/FileIO.h"
-
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#include "stb_image_write.h"
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
 #define PI 3.14159265358979323846
-
-//TO DO---------------------------------------------------------------------
-//Loop through the image to compute the harris corner values as described in class
-// srcImage:  grayscale of original image
-// harrisImage:  populate the harris values per pixel in this image
-void computeHarrisValues(CFloatImage &srcImage, CFloatImage &harrisImage)
-{
-	int w = srcImage.Shape().width;
-    int h = srcImage.Shape().height;
-
-    for (int y = 0; y < h; y++) {
-        for (int x = 0; x < w; x++) {
-            
-			// TODO:  Compute the harris score for 'srcImage' at this pixel and store in 'harrisImage'.  See the project
-            //   page for pointers on how to do this
-            
-        }
-    }
-}
-
-// TO DO---------------------------------------------------------------------
-// Loop through the harrisImage to threshold and compute the local maxima in a neighborhood
-// srcImage:  image with Harris values
-// destImage: Assign 1 to a pixel if it is above a threshold and is the local maximum in 3x3 window, 0 otherwise.
-//    You'll need to find a good threshold to use.
-void computeLocalMaxima(CFloatImage &srcImage,CByteImage &destImage)
-{
-	
-}
 
 // Convert Fl_Image to CFloatImage.
 bool convertImage(const Fl_Image *image, CFloatImage &convertedImage) {
@@ -104,23 +80,33 @@ void convertToByteImage(CFloatImage &floatImage, CByteImage &byteImage) {
 	}
 }
 
-// Compute SSD distance between two vectors.
-double distanceSSD(const vector<double> &v1, const vector<double> &v2) {
-	int m = v1.size();
-	int n = v2.size();
 
-	if (m != n) {
-		// Here's a big number.
-		return 1e100;
-	}
-
-	double dist = 0;
-
-	for (int i=0; i<m; i++) {
-		dist += pow(v1[i]-v2[i], 2);
-	}
-
+void convertToGrayImage(const CFloatImage &image, const CFloatImage &grayImage) {
 	
-	return sqrt(dist);
+	//grayImage = ConvertToGray(floatImage);
+	//return grayImage;
 }
 
+Fl_RGB_Image *convertToFLRGBImage( CByteImage & image) {
+	CShape sh = image.Shape();
+	const int imgSize = sh.width * sh.height *  sh.nBands;
+	uchar *pixels = new uchar[imgSize];
+	for (int b = 0; b < sh.nBands; b++) {
+		for (int h = 0; h < sh.height; h++) {
+			for (int w = 0; w < sh.width; w++) {
+				pixels[b*sh.width *  sh.height + h *sh.width + w] = image.Pixel(w, h, b);
+			}
+		}
+	}
+	
+
+	return new Fl_RGB_Image(pixels, sh.width, sh.height, sh.nBands);
+}
+int writePNG(CByteImage & image, const char *filename) {
+	WriteFile(image, "tempimg.tga");
+	int x, y, n;
+	unsigned char *data = stbi_load("tempimg.tga", &x, &y, &n, 0);
+	int result = stbi_write_png(filename,x, y, n, data, x);
+	stbi_image_free(data);
+	return result;
+}

@@ -39,23 +39,11 @@ bool ImageDatabase::load(const char *name, bool sift) {
 		f >> d.name;
 		d.name = dir + d.name;
 
-		// Read the feature file name.
-		f >> s;
-		s = dir + s;
-
 		// This really shouldn't be necessary.  I'm not sure what's
 		// going on.
 		if (f.peek() == EOF) {
 			break;
 		}
-
-		// Load the features from file.
-		if (((!sift) && (!d.features.load(s.c_str()))) || ((sift) && (!d.features.load_sift(s.c_str())))) {
-			clear();
-			f.close();
-			return false;
-		}
-
 		push_back(d);
 	}
 

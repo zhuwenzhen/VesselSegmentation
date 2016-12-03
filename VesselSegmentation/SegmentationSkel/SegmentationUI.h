@@ -41,7 +41,7 @@ public:
 	void set_images(Fl_Image *rgbImage, Fl_Image *grayImage, Fl_Image *binaryImage);
 
 	// Get the current match type.
-	int get_match_type() const;
+	//int get_match_type() const;
 
 private:
 	// Return the UI, given a menu item.
@@ -54,12 +54,12 @@ private:
 	static void cb_morphological_operations(Fl_Menu_ *o, void *v);
 	static void cb_erosion(Fl_Menu_ *o, void *v);
 	static void cb_dilation(Fl_Menu_ *o, void *v);
-	//static void cb_closing(Fl_Menu_ *o, void *v);
-	//static void cb_opening(Fl_Menu_ *o, void *v);
-	//static void cb_geodesic_erosion(Fl_Menu_ *o, void *v);
-	//static void cb_geodesic_dilation(Fl_Menu_ *o, void *v);
-	//static void cb_geodesic_opening(Fl_Menu_ *o, void *v);
-	//static void cb_geodesic_closing(Fl_Menu_ *o, void *v);
+	static void cb_closing(Fl_Menu_ *o, void *v);
+	static void cb_opening(Fl_Menu_ *o, void *v);
+	static void cb_geodesic_erosion(Fl_Menu_ *o, void *v);
+	static void cb_geodesic_dilation(Fl_Menu_ *o, void *v);
+	static void cb_geodesic_opening(Fl_Menu_ *o, void *v);
+	static void cb_geodesic_closing(Fl_Menu_ *o, void *v);
 	static void cb_exit(Fl_Menu_ *o, void *v);
 	static void cb_about(Fl_Menu_ *o, void *v);
 

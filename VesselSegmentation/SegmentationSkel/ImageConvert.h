@@ -21,7 +21,6 @@ const double gaussian5x5[25] = {0.003663, 0.014652,  0.025641,  0.014652,  0.003
                                 0.014652, 0.0586081, 0.0952381, 0.0586081, 0.014652, 
                                 0.003663, 0.014652,  0.025641,  0.014652,  0.003663 };
 
-
 //7x7 Gaussian
 const double gaussian7x7[49] = {0.000896861, 0.003587444, 0.006278027, 0.00896861,  0.006278027, 0.003587444, 0.000896861,
                                 0.003587444, 0.010762332, 0.023318386, 0.029596413, 0.023318386, 0.010762332, 0.003587444, 
@@ -39,8 +38,8 @@ bool convertImage(const Fl_Image *image, CFloatImage &convertedImage);
 // Convert CFloatImage to CByteImage.
 void convertToByteImage(CFloatImage &floatImage, CByteImage &byteImage);
 
-// Compute SSD distance between two vectors.
-double distanceSSD(const vector<double> &v1, const vector<double> &v2);
 
-
+CFloatImage convertToGrayImage(const Fl_Image *image);
+int writePNG(CByteImage & image, const char *filename);
+Fl_RGB_Image *convertToFLRGBImage( CByteImage & image);
 #endif

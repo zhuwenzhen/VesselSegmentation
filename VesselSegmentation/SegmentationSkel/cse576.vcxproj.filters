@@ -18,42 +18,45 @@
     <ClCompile Include="ImageDatabase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ImageView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Morphology.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ImageConvert.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SegmentaionDoc.cpp">
+    <ClCompile Include="SegmentationMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SegmentationUI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SegmentationMain.cpp">
+    <ClCompile Include="SegmentaionDoc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ImageView.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Morphology.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ImageConvert.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SegmentationDoc.h">
+    <ClInclude Include="ImageDatabase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SegmentationUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ImageDatabase.h">
+    <ClInclude Include="SegmentationDoc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

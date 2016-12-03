@@ -21,15 +21,15 @@ SegmentationUI::SegmentationUI() {
 	// Create the subwindows for viewing importing images.
 
 	//1. RGB
-	rgbView = new ImageView(0, 25, 250, 250, "RGB view");
+	rgbView = new ImageView(0, 25, 565, 584, "RGB view");
 	rgbView->box(FL_DOWN_FRAME);
 
 	// 2.GrayScale
-	grayView = new ImageView(250, 25, 250, 250, "Gray scale view");
+	grayView = new ImageView(565, 25, 565, 584, "Gray scale view");
 	grayView->box(FL_DOWN_FRAME);
 
 	// 3.Binary
-	binaryView = new ImageView(500, 25, 250, 250, "Binary view");
+	binaryView = new ImageView(1130, 25, 565, 584, "Binary view");
 	binaryView->box(FL_DOWN_FRAME);
 
 	// Tell binaryView not to take any events.
@@ -50,7 +50,7 @@ void SegmentationUI::show() {
 void SegmentationUI::refresh() {
 	mainWindow->redraw();
 	rgbView->redraw();
-	grayView->show();
+	grayView->redraw();
 	binaryView->redraw();
 }
 
@@ -91,7 +91,9 @@ void SegmentationUI::cb_load_rgb_image(Fl_Menu_ *o, void *v) {
 		doc->load_rgb_image(name);
 	}
 }
-
+void SegmentationUI::cb_exit(Fl_Menu_ *o, void *v) {
+	who_am_i(o)->mainWindow->hide();
+}
 // Called when the user chooses the "Perform rgb" menu item.
 //void SegmentationUI::cb_perform_rgb(Fl_Menu_ *o, void *v) {
 //	who_am_i(o)->doc->perform_rgb();
@@ -118,6 +120,24 @@ void SegmentationUI::cb_dilation(Fl_Menu_ *o, void *v) {
 	who_am_i(o)->doc->dilation();
 }
 
+void SegmentationUI::cb_closing(Fl_Menu_ *o, void *v) {
+	who_am_i(o)->doc->closing();
+}
+void SegmentationUI::cb_opening(Fl_Menu_ *o, void *v) {
+	who_am_i(o)->doc->opening();
+}
+void SegmentationUI::cb_geodesic_erosion(Fl_Menu_ *o, void *v) {
+	who_am_i(o)->doc->geodesic_erosion();
+}
+void SegmentationUI::cb_geodesic_dilation(Fl_Menu_ *o, void *v) {
+	who_am_i(o)->doc->geodesic_dilation();
+}
+void SegmentationUI::cb_geodesic_opening(Fl_Menu_ *o, void *v) {
+	who_am_i(o)->doc->geodesic_opening();
+}
+void SegmentationUI::cb_geodesic_closing(Fl_Menu_ *o, void *v) {
+	who_am_i(o)->doc->geodesic_closing();
+}
 
 //void SegmentationUI::cb_closing(Fl_Menu_ *o, void *v) {
 //	who_am_i(o)->doc->closing();
@@ -145,12 +165,12 @@ Fl_Menu_Item SegmentationUI::menuItems[] = {
 	{"&Morphology Operation", 0, 0, 0, FL_SUBMENU},
 		{"&Erosion", 0, (Fl_Callback *)SegmentationUI::cb_erosion},
 		{"&Dilation", 0, (Fl_Callback *)SegmentationUI::cb_dilation},
-		/*{"&Opening", 0, (Fl_Callback *)SegmentationUI:: cb_opening},
+		{"&Opening", 0, (Fl_Callback *)SegmentationUI:: cb_opening},
 		{"&Closing", 0, (Fl_Callback *)SegmentationUI:: cb_closing},
 		{"&geodesic_erosion", 0, (Fl_Callback *)SegmentationUI:: cb_geodesic_erosion},
 		{"&Geodesic dilation",0, (Fl_Callback *)SegmentationUI:: cb_geodesic_dilation},
 		{"&Geodesic opening", 0, (Fl_Callback *)SegmentationUI:: cb_geodesic_opening},
-		{"&Geodesic closing", 0, (Fl_Callback *)SegmentationUI:: cb_geodesic_closing},*/
+		{"&Geodesic closing", 0, (Fl_Callback *)SegmentationUI:: cb_geodesic_closing},
 		{0},
 
 	{"&Help", 0, 0, 0, FL_SUBMENU},

@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>Features</ProjectName>
+    <ProjectName>Segmenation</ProjectName>
     <ProjectGuid>{65CDA706-01BC-40C6-884D-3B4F8F039F9B}</ProjectGuid>
     <RootNamespace>Features</RootNamespace>
     <Keyword>ManagedCProj</Keyword>
@@ -93,20 +93,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ImageConvert.cpp" />
+    <ClCompile Include="ImageView.cpp" />
     <ClCompile Include="SegmentaionDoc.cpp" />
     <ClCompile Include="SegmentationMain.cpp" />
-    <ClCompile Include="SegmentationUI.cpp" />
     <ClCompile Include="ImageDatabase.cpp" />
-    <ClCompile Include="ImageView.cpp" />
     <ClCompile Include="Morphology.cpp" />
+    <ClCompile Include="SegmentationUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImageConvert.h" />
     <ClInclude Include="ImageDatabase.h" />
-    <ClInclude Include="SegmentationDoc.h" />
-    <ClInclude Include="SegmentationUI.h" />
     <ClInclude Include="ImageView.h" />
     <ClInclude Include="Morphology.h" />
+    <ClInclude Include="SegmentationDoc.h" />
+    <ClInclude Include="SegmentationUI.h" />
+    <ClInclude Include="stb_image.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="ImageLib\ImageLib.vcxproj">

@@ -54,12 +54,12 @@ public:
 	void set_ui(SegmentationUI *ui);
 
 	// Select or deselect all rgb features.
-	void select_all_rgb_features();
-	void deselect_all_rgb_features();
+	//void select_all_rgb_features();
+	//void deselect_all_rgb_features();
 
 	// Set the match algorithm.
-    int get_match_algorithm() { return morphology_code; }
-    void set_match_algorithm(int type);
+    //int get_match_algorithm() { return morphology_code; }
+    //void set_match_algorithm(int type);
 };
 
 #endif

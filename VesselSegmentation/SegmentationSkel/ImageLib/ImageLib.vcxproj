@@ -106,6 +106,7 @@
     <ClCompile Include="WarpImage.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\stb_image_write.h" />
     <ClInclude Include="Convert.h" />
     <ClInclude Include="Convolve.h" />
     <ClInclude Include="FileIO.h" />
