@@ -17,5 +17,4 @@
 #include "WarpImage.h"
 #include "Convolve.h"
 #include "Pyramid.h"
-
 #endif

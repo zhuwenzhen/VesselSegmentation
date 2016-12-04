@@ -18,7 +18,8 @@ DerivedData/
 xcuserdata/
 *.obj
 *.tlog
-
+*.pdb
+*.opendb
 ## Other
 *.moved-aside
 *.xccheckout
