@@ -11,7 +11,7 @@
 // Create and initialize the UI.
 SegmentationUI::SegmentationUI() {
 	// Create the main window.
-	mainWindow = new Fl_Window(250, 250, "Vessel Segmentation");
+	mainWindow = new Fl_Window(500, 200, "Vessel Segmentation");
 	mainWindow->user_data((void *)this);
 
 	// Create the menu bar.
@@ -60,7 +60,7 @@ void SegmentationUI::resize_windows(int w1, int w2, int w3, int h) {
 	menuBar->resize(menuBar->x(), menuBar->y(), w1+w2+w3, 25);
 	rgbView->resize(rgbView->x(), rgbView->y(), w1, h);
 	grayView->resize(grayView->x(), grayView->y(), w2, h);
-	binaryView->resize(rgbView->x()+w1, rgbView->y(), w3, h);
+	binaryView->resize(binaryView->x(), binaryView->y(), w3, h);
 }
 
 // Set the document pointer.
