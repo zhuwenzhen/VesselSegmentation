@@ -11,15 +11,6 @@
 
 using namespace std;
 
-//void testPixel(CFloatImage &image) {
-//	for (int i = 0; i < 1e6; i++) {
-//		image.Pixel()
-//	}
-//}
-
-// 2. how to make the library works properly? 
-// 3. how to geodesicDilation? 
-
 // Because Erosion takes the minimum, so we pad 1
 CFloatImage padImageForErosion(CFloatImage &image, int structSize) {
 	CShape sh = image.Shape();
@@ -358,7 +349,6 @@ CFloatImage GaussianFilter(CFloatImage &image) {
 	Convolve(image, resultImage, kernel);
 	return resultImage;
 }
-
 CFloatImage vesselSegmentation(CFloatImage &image) {
 	// CFloatImage resultImage(sh.width, sh.height, 0); // Initialize a Image with  
 	// step 1: S_op
@@ -375,8 +365,9 @@ CFloatImage vesselSegmentation(CFloatImage &image) {
 	}
 
 	// pick the maximum pixel-wise
-	for (int x = 0; x < sh.width; x++) {
-		for (int y = 0; y < sh.width; y++) {
+
+	for (int y = 0; y < sh.width; y++) {
+		for (int x = 0; x < sh.width; x++) {
 			float temp = 0;
 			for (auto img : openingImageList) {
 				if (temp < img.Pixel(x, y, 0)) {
@@ -389,19 +380,18 @@ CFloatImage vesselSegmentation(CFloatImage &image) {
 	// apply geodesic opening with marker = S_0 (origimal image)
 	CFloatImage Sop(w, h, 1);
 	Sop = GeodesicOpening(image, maxOpening);
-	return Sop;
 
 	// Step 2: Compute sum of top hats
 	// reduces small bright noise and improves the contrast of all linear parts. 
 	// Vessels could be manually segmented with a simple threshold on S_sum
 	// vector <CFloatImage> topHatImageList;
 	cout << "Entering Step 2: Top hats" << endl;
-	CFloatImage S_sum;
+	CFloatImage S_sum(w, h, 1);
 
 	for (int i = 0; i < 12; i++) {
 		CFloatImage topHatImage(w, h, 1);
-		for (int x = 0; x < w; x++) {
-			for (int y = 0; y < h; y++) {
+		for (int y = 0; y < h; y++) {
+			for (int x = 0; x < w; x++) {
 				topHatImage.Pixel(x, y, 0) = Sop.Pixel(x, y, 0) - openingImageList[i].Pixel(x, y, 0);
 				S_sum.Pixel(x, y, 0) += topHatImage.Pixel(x, y, 0);
 			}
@@ -420,13 +410,14 @@ CFloatImage vesselSegmentation(CFloatImage &image) {
 	for (int i = 0; i < 12; i++) {
 		openingList.push_back(Opening(S_lap, i));
 	}
-	CFloatImage maximumImage;
-	for (int x = 0; x < w; x++) {
-		for (int y = 0; y < h; y++) {
+	CFloatImage maximumImage(w, h, 1);
+
+	for (int y = 0; y < h; y++) {
+		for (int x = 0; x < w; x++) {
 			float temp = -10e10;
 			for (CFloatImage & it : openingList) {
 				if (temp < it.Pixel(x, y, 0)) {
-					temp = it.Pixel(x, y, 0);					
+					temp = it.Pixel(x, y, 0);
 				}
 			}
 			maximumImage.Pixel(x, y, 0) = temp;
@@ -444,9 +435,10 @@ CFloatImage vesselSegmentation(CFloatImage &image) {
 	}
 
 
-	CFloatImage minimumImage;
-	for (int x = 0; x < w; x++) {
-		for (int y = 0; y < h; y++) {
+	CFloatImage minimumImage(w, h, 1);
+
+	for (int y = 0; y < h; y++) {
+		for (int x = 0; x < w; x++) {
 			float temp = 10e10;
 			for (CFloatImage & it : closingList) {
 				if (temp > it.Pixel(x, y, 0)) {
@@ -470,15 +462,16 @@ CFloatImage vesselSegmentation(CFloatImage &image) {
 
 	const double threshold = 0.00392157; // 1 in 255
 
-	CFloatImage doubleMaximumImage;
-	for (int x = 0; x < w; x++) {
-		for (int y = 0; y < h; y++) {
+	CFloatImage doubleMaximumImage(w, h, 1);
+
+	for (int y = 0; y < h; y++) {
+		for (int x = 0; x < w; x++) {
 			float temp = -10e10;
 			for (CFloatImage & it : doubleOpeningList) {
 				if (temp < it.Pixel(x, y, 0)) {
 					temp = it.Pixel(x, y, 0);
 				}
-			}			
+			}
 			if (temp > threshold) {
 				doubleMaximumImage.Pixel(x, y, 0) = 1;
 			}
@@ -487,7 +480,7 @@ CFloatImage vesselSegmentation(CFloatImage &image) {
 			}
 		}
 	}
-	// return doubleMaximumImage;
+	return doubleMaximumImage;
 }
 
 CFloatImage Erosion2(CFloatImage &grayImage, int structType) {

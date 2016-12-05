@@ -1,47 +1,4 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Release\) contains files shared from another project (Segmenation.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  ImageConvert.cpp
-c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\imagelib\Image.h(168): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
-c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\imagelib\Image.h(169): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\imagelib\Image.h(170): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\imagelib\Image.h(172): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\imagelib\Image.h(174): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\stb_image_write.h(222): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
-c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\stb_image_write.h(616): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\stb_image_write.h(998): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
-  ImageView.cpp
-  SegmentaionDoc.cpp
-c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\imagelib\Image.h(168): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
-c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\imagelib\Image.h(169): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\imagelib\Image.h(170): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\imagelib\Image.h(172): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\imagelib\Image.h(174): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\Morphology.h(6): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  SegmentationMain.cpp
-c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\imagelib\Image.h(168): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
-c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\imagelib\Image.h(169): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\imagelib\Image.h(170): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\imagelib\Image.h(172): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\imagelib\Image.h(174): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\Morphology.h(6): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  ImageDatabase.cpp
   Morphology.cpp
 c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\Morphology.h(6): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\ImageLib/Image.h(168): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -54,17 +11,10 @@ c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmenta
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
 c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\ImageLib/Image.h(174): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdio.h(1769): note: see declaration of 'sprintf'
-Morphology.cpp(235): warning C4305: 'initializing': truncation from 'double' to 'float'
-Morphology.cpp(354): warning C4244: '=': conversion from 'const double' to 'float', possible loss of data
-Morphology.cpp(426): warning C4305: 'initializing': truncation from 'double' to 'float'
-Morphology.cpp(450): warning C4305: 'initializing': truncation from 'double' to 'float'
-Morphology.cpp(476): warning C4305: 'initializing': truncation from 'double' to 'float'
-  SegmentationUI.cpp
-  Generating Code...
-c:\users\wenzhen\documents\github\vesselsegmentation\vesselsegmentation\segmentationskel\segmentationmain.cpp(98): warning C4715: 'mainErosion': not all control paths return a value
-ImageLib.lib(FileIO.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in ImageConvert.obj
-ImageLib.lib(Image.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in ImageConvert.obj
-ImageLib.lib(Convert.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in ImageConvert.obj
-ImageLib.lib(Convolve.obj) : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MT_StaticRelease' doesn't match value 'MD_DynamicRelease' in ImageConvert.obj
-LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
-C:\Users\wenzhen\Documents\GitHub\VesselSegmentation\VesselSegmentation\SegmentationSkel\Release\Segmentation.exe : fatal error LNK1319: 4 mismatches detected
+Morphology.cpp(226): warning C4305: 'initializing': truncation from 'double' to 'float'
+Morphology.cpp(345): warning C4244: '=': conversion from 'const double' to 'float', possible loss of data
+Morphology.cpp(417): warning C4305: 'initializing': truncation from 'double' to 'float'
+Morphology.cpp(442): warning C4305: 'initializing': truncation from 'double' to 'float'
+Morphology.cpp(469): warning C4305: 'initializing': truncation from 'double' to 'float'
+  cse576.vcxproj -> C:\Users\wenzhen\Documents\GitHub\VesselSegmentation\VesselSegmentation\SegmentationSkel\Release\Segmentation.exe
+  cse576.vcxproj -> C:\Users\wenzhen\Documents\GitHub\VesselSegmentation\VesselSegmentation\SegmentationSkel\Release\Segmentation.pdb (Full PDB)

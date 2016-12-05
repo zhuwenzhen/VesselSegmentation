@@ -71,10 +71,10 @@ void SegmentationDoc::convert_gray_image() {
 	tempGrayImage = ConvertToGray(floatImage);
 	CByteImage tempGrayByteImage = CByteImage(tempGrayImage.Shape());
 	convertToByteImage(tempGrayImage, tempGrayByteImage);
-	//writePNG(tempGrayByteImage, "tempgrayimg.png");
-	grayImage = Fl_Shared_Image::get("gray.png");
+	writePNG(tempGrayByteImage, "tempgrayimg.png");
+	grayImage = Fl_Shared_Image::get("tempgrayimg.png");
 	ui->resize_windows(rgbImage->w(), grayImage->w(), 0, rgbImage->h());
-	ui->set_images(rgbImage, grayImage, NULL);
+	ui->set_images(rgbImage, grayImage, binaryImage);
 	ui->refresh();
 
 }
@@ -103,20 +103,18 @@ void SegmentationDoc::vessel_segmentation() {
 		}
 	}
 	// 2. write to PNG
-	writePNG(resultByteImageSingleChannel, "tempgrayimg.png");
+	writePNG(resultByteImageSingleChannel, "tempgrayimg4.png");
 	// 3. Read from PNG to Fl-share
-	grayImage->release();
-	grayImage = NULL;
-	grayImage = Fl_Shared_Image::get("tempgrayimg.png");
-	ui->resize_windows(rgbImage->w(), grayImage->w(), 0, rgbImage->h());
-	ui->set_images(rgbImage, grayImage, NULL);
+	binaryImage = Fl_Shared_Image::get("tempgrayimg4.png");
+	ui->resize_windows(rgbImage->w(), grayImage->w(), binaryImage->w(), rgbImage->h());
+	ui->set_images(rgbImage, grayImage, binaryImage);
 	ui->refresh();
 }
 void SegmentationDoc::morphological_operations() {
 	fl_alert("Not implemented");
 }
 void SegmentationDoc::erosion() {
-	if (grayImage== NULL) {
+	if (grayImage == NULL) {
 	}
 	//Channel for convertImage is always 3!
 	CShape sh(grayImage->w(), grayImage->h(), 3);
@@ -147,7 +145,7 @@ void SegmentationDoc::erosion() {
 	grayImage = NULL;
 	grayImage = Fl_Shared_Image::get("tempgrayimg2.png");
 	ui->resize_windows(rgbImage->w(), grayImage->w(), 0, rgbImage->h());
-	ui->set_images(rgbImage, grayImage, NULL);
+	ui->set_images(rgbImage, grayImage, binaryImage);
 	ui->refresh();
 }
 void SegmentationDoc::dilation() {
@@ -182,7 +180,7 @@ void SegmentationDoc::dilation() {
 	grayImage = NULL;
 	grayImage = Fl_Shared_Image::get("tempgrayimg3.png");
 	ui->resize_windows(rgbImage->w(), grayImage->w(), 0, rgbImage->h());
-	ui->set_images(rgbImage, grayImage, NULL);
+	ui->set_images(rgbImage, grayImage, binaryImage);
 	ui->refresh();
 }
 void SegmentationDoc::opening() {
@@ -217,7 +215,7 @@ void SegmentationDoc::opening() {
 	grayImage = NULL;
 	grayImage = Fl_Shared_Image::get("tempgrayimg3.png");
 	ui->resize_windows(rgbImage->w(), grayImage->w(), 0, rgbImage->h());
-	ui->set_images(rgbImage, grayImage, NULL);
+	ui->set_images(rgbImage, grayImage, binaryImage);
 	ui->refresh();
 }
 void SegmentationDoc::closing() {
@@ -251,7 +249,7 @@ void SegmentationDoc::closing() {
 	grayImage = NULL;
 	grayImage = Fl_Shared_Image::get("tempgrayimg3.png");
 	ui->resize_windows(rgbImage->w(), grayImage->w(), 0, rgbImage->h());
-	ui->set_images(rgbImage, grayImage, NULL);
+	ui->set_images(rgbImage, grayImage, binaryImage);
 	ui->refresh();
 }
 void SegmentationDoc::geodesic_erosion() {
@@ -288,9 +286,9 @@ void SegmentationDoc::geodesic_dilation() {
 	grayImage = NULL;
 	grayImage = Fl_Shared_Image::get("tempgrayimg3.png");
 	ui->resize_windows(rgbImage->w(), grayImage->w(), 0, rgbImage->h());
-	ui->set_images(rgbImage, grayImage, NULL);
+	ui->set_images(rgbImage, grayImage, binaryImage);
 	ui->refresh();
-	
+
 }
 void SegmentationDoc::geodesic_opening() {
 	fl_alert("Not implemented");
