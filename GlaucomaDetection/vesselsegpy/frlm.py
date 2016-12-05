@@ -1,27 +1,31 @@
 import numpy as np
+import numba
 #degree = [[1, 0], [1, 1], [0, 1], [-1, 1]]
-
 class XYHelper:
     def __init__(self, x, y):
         self.x = x
         self.y = y
+    def __str__(self):
+        return "(" + str(self.x) + ", " + str(self.y) + ")"
+    def __repr__(self):
+        return self.__str__()
+
 def frlm(img):
-    x_sz = img.shape[0]
-    y_sz = img.shape[1]
-    coord_mat = np.array([XYHelper(x, y) for y in range(y_sz) for x in range(x_sz)]).reshape(img.shape[0], img.shape[1])
+    x_sz = img.shape[1]
+    y_sz = img.shape[0]
+    coord_mat = np.array([XYHelper(x, y) for y in range(y_sz) for x in range(x_sz)]).reshape(y_sz, x_sz)
     runs_135 = np.array([coord_mat.diagonal(i) for i in range(-y_sz+1, x_sz)])
     runs_45 = np.array([np.flipud(coord_mat).diagonal(i) for i in range(-y_sz+1, x_sz)])
     ru = filter(lambda r: len(r[1]) == 0, enumerate(runs_45))
-    print(list(ru))
     runs_0 = coord_mat.copy()
     runs_90 = coord_mat.transpose().copy()
-    all_runs = [runs_45]
+    all_runs = [runs_0, runs_45, runs_90, runs_135]
     #runs_0, runs_45, runs_90, runs_135
     all_rlms = map(lambda runs:rlm(img, runs),all_runs)
     return list(all_rlms)
 
 def rlm(img, runs):
-    frl_mat = np.zeros(img.shape)
+    frl_mat = np.zeros((256, 1000))
     #if(angle_mode == "deg"):
     #    degree = math.radians(degree)
     #TODO: figure out the loop
@@ -41,12 +45,11 @@ def rlm(img, runs):
     #             run = 1
     #     idx_y += 1
     for single_run in runs:
-        print(single_run)
         x, y = (single_run[0].x,  single_run[0].y)
         run = 0
         for coord in single_run:
             if img[coord.y][coord.x] == img[y][x]:
-                run+=1
+                run += 1
             else:
                 frl_mat[img[y][x]][run] += 1
                 run = 1
@@ -54,7 +57,8 @@ def rlm(img, runs):
             y = coord.y
         frl_mat[img[y, x]][run] += 1
     return frl_mat
+
 def compute_sre(frl_mat):
-    sre_up = np.sum(list(np.sum(col/i**2) for i, col in enumerate(frl_mat.transpose())))
+    sre_up = np.sum(list(np.sum(col/(i+1)**2) for i, col in enumerate(frl_mat.transpose())))
     sre_down = np.sum(frl_mat)
     return sre_up / sre_down
